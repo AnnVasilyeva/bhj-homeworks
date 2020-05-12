@@ -11,6 +11,12 @@
 //
 // let timerId = setInterval(getTimer, 1000);
 
+let downloadLink = document.createElement('a');
+let parent = document.getElementById('status');
+parent.appendChild(downloadLink);
+downloadLink.href = 'http://hello.kitty';
+downloadLink.target='_blank';
+downloadLink.download = '';
 
 const getTimer = function () {
     let hours = document.getElementById('hours');
@@ -52,8 +58,8 @@ const getTimer = function () {
 
     if (seconds.textContent == '00' && minutes.textContent == '00' && hours.textContent == '00') {
         clearInterval(timerId);
-        return alert('Вы победили в конкурсе!');
-
+        window.location = 'https://www.mozilla.org/ru/firefox/download/thanks/';
+        downloadLink.click();
     }
 }
 
