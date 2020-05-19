@@ -18,14 +18,28 @@ class Game {
     }
 
     registerEvents() {
-        /*
-          TODO:
-          Написать обработчик события, который откликается
-          на каждый введённый символ.
-          В случае правильного ввода символа вызываем this.success()
-          При неправильном вводе символа - this.fail();
-         */
         let self = this;
+        let currentWord = document.querySelectorAll(".symbol");
+        startTimer(currentWord.length);
+
+        //запуск таймера
+        function startTimer(seconds) {
+            let timer = document.querySelector('.status__time');
+            timer.textContent = seconds;
+            this.timer = setInterval(countdown, 1000);
+        };
+
+        //счет и остановка таймера, вызов this.fail() при проигрыше
+        function countdown() {
+            let timer = document.querySelector('.status__time');
+            if (timer.textContent > 0) {
+                timer.textContent--;
+            } else {
+                clearInterval(this.timer);
+                // console.log('Вы проиграли!');
+                self.fail();
+            }
+        }
 
         document.addEventListener('keyup', function (event) {
 
@@ -108,25 +122,8 @@ class Game {
         this.wordElement.innerHTML = html;
 
         this.currentSymbol = this.wordElement.querySelector('.symbol_current');
-        this.startTimer(word.length);
     }
 
-    startTimer(seconds) {
-        let timer = document.querySelector('.status__time');
-        timer.textContent = seconds;
-        this.timer = setInterval(this.countdown, 1000);
-    };
-
-    countdown() {
-        let timer = document.querySelector('.status__time');
-        if (timer.textContent > 0) {
-            timer.textContent--;
-        } else {
-            clearInterval(this.timer);
-            // console.log('Вы проиграли!');
-            // this.fail();
-        }
-    }
 }
 
 new Game(document.getElementById('game'));
