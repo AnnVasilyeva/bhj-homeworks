@@ -19,35 +19,38 @@ class Game {
 
     registerEvents() {
         let self = this;
-        let currentWord = document.querySelectorAll(".symbol");
-        startTimer(currentWord.length);
 
-        //запуск таймера
-        function startTimer(seconds) {
-            let timer = document.querySelector('.status__time');
-            timer.textContent = seconds;
-            this.timer = setInterval(countdown, 1000);
-        };
+        // let currentWord = document.querySelectorAll(".symbol");
+        // let count;
+        // //при обновлении слова таймер не устанавливается заново
+        // startTimer(currentWord.length);
+        //
+        // //запуск таймера
+        // function startTimer(seconds) {
+        //     let timer = document.querySelector('.status__time');
+        //     timer.textContent = seconds;
+        //     count = setInterval(countdown, 1000);
+        // };
+        //
+        // //счет и остановка таймера, вызов this.fail() при проигрыше
+        // function countdown() {
+        //     let timer = document.querySelector('.status__time');
+        //     if (timer.textContent > 0) {
+        //         timer.textContent--;
+        //     } else {
+        //         clearInterval(count);
+        //         // console.log('Вы проиграли!');
+        //         self.fail();
+        //     }
+        // }
 
-        //счет и остановка таймера, вызов this.fail() при проигрыше
-        function countdown() {
-            let timer = document.querySelector('.status__time');
-            if (timer.textContent > 0) {
-                timer.textContent--;
-            } else {
-                clearInterval(this.timer);
-                // console.log('Вы проиграли!');
-                self.fail();
-            }
-        }
-
-        document.addEventListener('keyup', function (event) {
+        document.addEventListener('keyup', (event) => {
 
             let symbols = document.querySelectorAll('.symbol');
-            this.currentSymbol = document.querySelector('.symbol_current').textContent;
+            this.currentSymbol = document.querySelector('.symbol_current');
 
 
-            if (event.key.toLowerCase() === this.currentSymbol.toLowerCase()) {
+            if (event.key.toLowerCase() === this.currentSymbol.textContent.toLowerCase()) {
                 self.success();
 
                 let index = [...symbols].findIndex((element) => element.classList.contains('symbol_current'));
