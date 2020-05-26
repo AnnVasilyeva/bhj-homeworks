@@ -5,6 +5,7 @@ let tasksList = document.querySelector('.tasks__list');
 let taskTemplate = document.querySelector('template').content;
 
 form.addEventListener('submit', (evt) => {
+    evt.preventDefault();
     if (formInput.value.length === 0) {
         return;
     }
