@@ -15,12 +15,10 @@ form.addEventListener('submit', (evt) => {
     let taskDescription = task.querySelector('.task__title');
     taskDescription.textContent = taskText;
 
+    let closeBtn = task.querySelector('.task__remove');
+    closeBtn.addEventListener('click', (event) => event.currentTarget.closest('.task').remove());
+
     tasksList.appendChild(task);
     formInput.value = '';
-
-    [...tasksList.children].forEach((item) => {
-        let closeBtn = item.querySelector('.task__remove');
-        closeBtn.addEventListener('click', (event) => event.currentTarget.closest('.task').remove());
-    });
 });
 
