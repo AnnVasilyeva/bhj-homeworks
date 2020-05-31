@@ -9,7 +9,13 @@
     <link rel="stylesheet" href="task.css">
 </head>
 <body>
-    <textarea id="editor" cols="30" rows="10"></textarea>
+    <form class="form">
+        <label class="field-group">
+            <span class="field-label">Напишите текст вашего сообщения</span>
+            <textarea id="editor" cols="30" rows="10" name="message"></textarea>
+        </label>
+        <button class="button-clear" type="reset">Очистить</button>
+    </form>
     <script src="task.js"></script>
 </body>
 </html>

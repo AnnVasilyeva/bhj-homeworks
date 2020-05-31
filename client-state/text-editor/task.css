@@ -1,0 +1,40 @@
+body {
+    width: 400px;
+    padding: 50px;
+    border: 1px solid #cbd1d4;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.field-label {
+    color: #0f8fee;
+    text-transform: uppercase;
+
+}
+#editor {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    min-width: 400px;
+    max-width: 400px;
+    min-height: 100px;
+    max-height: 250px;
+}
+
+.button-clear {
+    width: 125px;
+    text-align: center;
+    background-color: transparent;
+    color: #0f8fee;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 10px 25px;
+    border: 1px solid #0f8fee;
+    cursor: pointer;
+
+}
+
+.button-clear:hover {
+    background-color: #1ea0f9;
+    color: #ffffff;
+}
